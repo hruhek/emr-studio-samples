@@ -88,11 +88,10 @@ echo "......"
 
 studio_outputs=$(aws emr create-studio --region $region \
 --name $studio_name \
---auth-mode SSO \
+--auth-mode IAM \
 --vpc-id $vpc \
 --subnet-ids $private_subnet_1 $private_subnet_2 \
 --service-role $service_role \
---user-role $user_role \
 --workspace-security-group-id $workspace_sg \
 --engine-security-group-id $engine_sg \
 --default-s3-location s3://$storage_bucket \
